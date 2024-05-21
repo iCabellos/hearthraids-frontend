@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <h2>Login</h2>
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        {{ login_form.as_p }}
+        <button type="submit" name="login">Login</button>
+    </form>
+    {% if error %}
+        <p>{{ login_error }}</p>
+    {% endif %}
+    <h2>Register</h2>
+    <form method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        {{ register_form.as_p }}
+        <button type="submit" name="register">Register</button>
+    </form>
+    {% if error %}
+        <p>{{ register_error }}</p>
+    {% endif %}
+</body>
+</html>
